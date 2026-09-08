@@ -1,0 +1,34 @@
+# 敏感文件（绝对不要提交到 GitHub）
+pay.config.js
+keys/
+
+# Windows 专属
+node.exe
+cloudflared.exe
+cf.exe
+cf2.exe
+cf3.exe
+cloudflared-new.exe
+
+# 日志和临时文件
+*.log
+*.err
+cloudflared.err.log
+cloudflared.out.log
+server.out.log
+server.err.log
+cf.err.log
+cf.out.log
+
+# 运行时数据（运行时挂载卷覆盖）
+data.json
+uploads/
+
+# Fly.io 工作目录
+.fly/
+
+# Git / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store

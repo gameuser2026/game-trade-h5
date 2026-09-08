@@ -1,0 +1,48 @@
+# Windows 专属文件（云上是 Linux，不需要）
+node.exe
+cloudflared.exe
+cf.exe
+cf2.exe
+cf3.exe
+cloudflared-new.exe
+
+# 日志和临时文件
+*.log
+*.err
+cloudflared.err.log
+cloudflared.out.log
+server.out.log
+server.err.log
+cf.err.log
+cf.out.log
+
+# Windows 启动脚本
+*.bat
+一键启动(服务+穿透).bat
+启动服务.bat
+配置支付.bat
+启动隧道.bat
+
+# 开发工具
+test-e2e.js
+download-tool.js
+setup-pay.js
+
+# 运行时数据（运行时挂载卷覆盖）
+data.json
+uploads/
+
+# Git / IDE
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+
+# Trae 浏览器截图
+trae-browser-screenshots/
+
+# 文档
+*.md
+README.md
+DEPLOY.md

@@ -1,0 +1,31 @@
+# Render.com 部署配置
+# 文档: https://render.com/docs/blueprint-spec
+# 部署: 在 Render 控制台 New → Blueprint → 连接 GitHub 仓库
+
+services:
+  - type: web
+    name: game-trade-h5
+    runtime: node
+    plan: free  # 免费版（15分钟无访问会休眠）
+    # 自动从 Dockerfile 构建
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # 健康检查
+    healthcheckPath: /api/products
+    healthcheckTimeout: 30
+    # 自动部署
+    autoDeploy: true
+    # 环境变量（在 Render 控制台填写）
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: UPLOAD_DIR
+        value: /app/uploads
+      - key: DATA_DIR
+        value: /app/data
+      - key: SECRET
+        sync: false  # 在控制台手动填写（敏感信息）
+    # ⚠️ 免费版没有持久化磁盘
+    # 如需持久化数据，升级到 Starter 计划（$7/月）+ 加 Disk（$1/月/GB）

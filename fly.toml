@@ -1,0 +1,35 @@
+# Fly.io 配置 - 游易达游戏担保交易平台
+# 文档: https://fly.io/docs/reference/configuration/
+
+app = "game-trade-h5"  # ★ 改成你的 Fly 应用名（小写字母+数字+连字符）
+primary_region = "hkg"  # 香港机房（国内访问最快，可选 nrt 东京、sin 新加坡）
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false  # 不自动停止（保持服务常驻，免费额度够 1 个常驻机器）
+  auto_start_machines = true
+  min_machines_running = 1
+  [http_service.concurrency]
+    type = "requests"
+    hard_limit = 250
+    soft_limit = 200
+
+# 免费规格：shared-cpu-1x, 256MB 内存
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+
+# 持久化卷：存储 data.json + 上传的图片
+[[mounts]]
+  source = "game_data"
+  destination = "/app/data"
+  initial_size = "1GB"  # 免费额度 3GB 之内
+
+[[mounts]]
+  source = "game_uploads"
+  destination = "/app/uploads"
+  initial_size = "1GB"

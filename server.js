@@ -20,13 +20,31 @@ const SECRET = process.env.SECRET || 'game-trade-escrow-platform-secret-2026';
 const CAT_NAME = { account: '游戏账号', skin: '游戏皮肤', item: '游戏道具', coin: '游戏货币' };
 
 /* ---------------- 真实支付 ---------------- */
+// 配置优先级：环境变量 > pay.config.js 文件 > 演示模式
 let payCfg = {};
-let alipay, wechatpay;
 try {
   payCfg = require('./pay.config.js');
+} catch (e) {
+  console.log('[支付] 未找到 pay.config.js，尝试使用环境变量注入');
+  payCfg = {
+    alipay: {
+      appId: process.env.ALIPAY_APP_ID || '',
+      privateKey: (process.env.ALIPAY_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+      alipayPublicKey: process.env.ALIPAY_PUBLIC_KEY || '',
+      notifyUrl: process.env.PAY_NOTIFY_URL || '',
+      returnUrl: process.env.PAY_RETURN_URL || '',
+      signType: 'RSA2',
+      charset: 'utf-8',
+      gateway: 'https://openapi.alipay.com/gateway.do'
+    },
+    wechat: {}
+  };
+}
+let alipay, wechatpay;
+try {
   alipay = require('./lib/alipay.js');
   wechatpay = require('./lib/wechatpay.js');
-} catch (e) { console.log('[支付] 配置或SDK加载失败，将使用演示模式:', e.message); }
+} catch (e) { console.log('[支付] SDK加载失败，将使用演示模式:', e.message); }
 // 判断是否已配置真实支付
 const PAY_READY = {
   alipay: !!(payCfg.alipay && payCfg.alipay.appId && payCfg.alipay.privateKey && payCfg.alipay.alipayPublicKey && payCfg.alipay.notifyUrl),

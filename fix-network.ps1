@@ -1,4 +1,4 @@
-﻿# ============================================================
+# ============================================================
 #  游易达 一键修复网络（隧道重启 + 回调更新 + 服务重启）
 #  双击桌面「一键修复网络.bat」即可运行，无需手动改配置
 # ============================================================
@@ -7,8 +7,7 @@ $ErrorActionPreference = 'Continue'
 
 $proj   = $PSScriptRoot
 $cf     = 'c:\Users\Administrator\Desktop\cf.exe'
-$node   = 'C:\nodejs\node.exe'
-if (-not (Test-Path $node)) { $node = 'node' }
+$node   = 'C:\Users\Administrator\Desktop\node-full\node-v20.18.0-win-x64\node.exe'
 $config = Join-Path $proj 'pay.config.js'
 $cfErr  = Join-Path $proj 'cf-fix.err.log'
 $cfOut  = Join-Path $proj 'cf-fix.out.log'

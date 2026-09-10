@@ -22,6 +22,7 @@ cf.out.log
 
 # 运行时数据（运行时挂载卷覆盖）
 data.json
+keys.json
 uploads/
 
 # Fly.io 工作目录

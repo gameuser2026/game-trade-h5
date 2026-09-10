@@ -1,0 +1,13 @@
+node.exe
+cf.exe
+cloudflared.exe
+*.zip
+.git
+keys
+pay.config.js
+data.json
+uploads
+启动隧道.bat
+部署到Fly.bat
+上传支付配置.bat
+DEPLOY.md

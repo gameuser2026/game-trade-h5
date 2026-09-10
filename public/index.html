@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>游易达 · 游戏账号道具担保交易平台</title>
-<link rel="stylesheet" href="/css/style.css">
+<title>币易 BiYiEx · 数字资产交易平台（模拟盘）</title>
+<link rel="stylesheet" href="/css/style.css?v=20260910g">
+<link rel="stylesheet" href="/css/ex.css?v=20260910g">
 </head>
 <body>
 <div id="app">
   <div id="view" class="view"></div>
   <nav id="tabbar" class="tabbar">
-    <a href="#/home" data-tab="home"><span class="ic">🏠</span><span>首页</span></a>
-    <a href="#/publish" data-tab="publish"><span class="ic">➕</span><span>发布</span></a>
-    <a href="#/orders" data-tab="orders"><span class="ic">📋</span><span>订单</span></a>
+    <a href="#/markets" data-tab="markets"><span class="ic">📈</span><span>行情</span></a>
+    <a href="#/trade" data-tab="trade"><span class="ic">🔄</span><span>交易</span></a>
+    <a href="#/c2c" data-tab="c2c"><span class="ic">💱</span><span>法币</span></a>
+    <a href="#/wallet" data-tab="wallet"><span class="ic">👛</span><span>资产</span></a>
     <a href="#/me" data-tab="me"><span class="ic">👤</span><span>我的</span></a>
   </nav>
+  <div id="toast" class="toast"></div>
+  <div id="modal" class="modal-mask" style="display:none"></div>
 </div>
-<div id="toast" class="toast"></div>
-<div id="modal" class="modal-mask" style="display:none"></div>
-<script src="/js/app.js"></script>
+<script src="/js/app.js?v=20260910h"></script>
 </body>
 </html>

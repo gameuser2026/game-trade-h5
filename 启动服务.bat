@@ -18,5 +18,5 @@ echo.
 echo   关闭此窗口即停止服务
 echo ==========================================
 start ""  http://localhost:3000
-"%~dp0node-full\node-v20.18.0-win-x64\node.exe" server.js
+"C:\Users\Administrator\Desktop\node-full\node-v20.18.0-win-x64\node.exe" server.js
 pause

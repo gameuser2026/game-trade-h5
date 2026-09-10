@@ -24,6 +24,8 @@ cf.out.log
 data.json
 keys.json
 uploads/
+公网地址.txt
+config.yml
 
 # Fly.io 工作目录
 .fly/
